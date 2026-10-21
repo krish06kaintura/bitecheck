@@ -1,0 +1,14 @@
+{
+  "maltodextrin": { "gi": 110, "risk": "CRITICAL", "desc": "Industrial corn-derived starch; spikes blood sugar faster than pure table glucose (GI 100)" },
+  "invert_sugar_syrup": { "gi": 65, "risk": "HIGH", "desc": "Chemically split sucrose disguised under technical name" },
+  "liquid_glucose": { "gi": 100, "risk": "CRITICAL", "desc": "High-glycemic commercial corn syrup" },
+  "high_fructose_corn_syrup": { "gi": 68, "risk": "CRITICAL", "desc": "Metabolized directly by liver into visceral fat" },
+  "dextrose": { "gi": 100, "risk": "CRITICAL", "desc": "Pure simple sugar that triggers rapid insulin surge" },
+  "malt_extract": { "gi": 42, "risk": "MODERATE", "desc": "Disguised sweetener commonly marketed in children's health drinks" },
+  "maltose": { "gi": 105, "risk": "CRITICAL", "desc": "Disaccharide with glycemic index higher than sucrose" },
+  "corn_syrup_solids": { "gi": 100, "risk": "HIGH", "desc": "Dehydrated industrial corn starch syrup" },
+  "fructose": { "gi": 25, "risk": "HIGH", "desc": "Excessive intake causes non-alcoholic fatty liver disease (NAFLD)" },
+  "cane_sugar": { "gi": 65, "risk": "MODERATE", "desc": "Standard sucrose sweetener" },
+  "golden_syrup": { "gi": 65, "risk": "HIGH", "desc": "Refined sugar byproduct" },
+  "brown_rice_syrup": { "gi": 98, "risk": "CRITICAL", "desc": "Often marketed as organic/natural, but causes steep glycemic spikes" }
+}

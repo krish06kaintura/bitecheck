@@ -1,0 +1,44 @@
+{
+  "cookies_and_biscuits": [
+    {
+      "brand": "The Whole Truth",
+      "product": "Dark Chocolate Peanut Butter Cookies",
+      "why_clean": "Zero Maida (100% whole grains), 0 added sugar, sweetened with dates only, zero palm oil",
+      "platforms": ["Blinkit", "Zepto", "Instamart"]
+    },
+    {
+      "brand": "Early Foods",
+      "product": "Ragi & Almond Cookies",
+      "why_clean": "Zero refined flour, sweetened with jaggery, baked in pure cow ghee",
+      "platforms": ["Amazon", "FirstCry"]
+    }
+  ],
+  "noodles_and_pasta": [
+    {
+      "brand": "Slurrp Farm",
+      "product": "Millet Noodles",
+      "why_clean": "Zero Maida, not fried in palm oil (sun-dried), all-natural spice tastemaker",
+      "platforms": ["Zepto", "Blinkit", "Amazon"]
+    },
+    {
+      "brand": "WickedGud",
+      "product": "Oats & Multigrain Khow Suey Noodles",
+      "why_clean": "100% Maida-free, 0 oil tastemaker, high plant protein & dietary fiber",
+      "platforms": ["Blinkit", "Zepto"]
+    }
+  ],
+  "namkeen_and_chips": [
+    {
+      "brand": "The Healthy Binge",
+      "product": "Baked Multigrain Crispies",
+      "why_clean": "Zero palm oil, roasted/baked rather than deep-fried, low sodium load",
+      "platforms": ["Blinkit", "Zepto"]
+    },
+    {
+      "brand": "Farmley",
+      "product": "Roasted Makhana (Himalayan Salt)",
+      "why_clean": "100% whole foxnuts roasted in olive oil, zero synthetic flavor enhancers",
+      "platforms": ["Blinkit", "Zepto", "Instamart"]
+    }
+  ]
+}

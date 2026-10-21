@@ -1,0 +1,14 @@
+{
+  "INS 102": { "name": "Tartrazine (Synthetic Yellow #5)", "hazard": "CRITICAL", "reason": "Linked to hyperactivity in children; banned/restricted in Norway and Austria" },
+  "INS 110": { "name": "Sunset Yellow FCF", "hazard": "HIGH", "reason": "Synthetic azo dye; linked to allergic reactions and childhood restlessness" },
+  "INS 150d": { "name": "Caramel Color IV (Ammonia-Sulfite)", "hazard": "HIGH", "reason": "Manufactured with ammonia; contains trace 4-MEI carcinogen byproduct" },
+  "INS 621": { "name": "Monosodium Glutamate (MSG)", "hazard": "MODERATE", "reason": "Excitotoxin flavor enhancer; causes sensitivity in certain individuals" },
+  "INS 627": { "name": "Disodium Guanylate", "hazard": "MODERATE", "reason": "Purine-rich flavor enhancer; metabolizes into uric acid (caution for gout)" },
+  "INS 631": { "name": "Disodium Inosinate", "hazard": "MODERATE", "reason": "Synergistic flavor enhancer frequently paired with MSG" },
+  "INS 407": { "name": "Carrageenan", "hazard": "CRITICAL", "reason": "Seaweed-derived thickener known to induce gut ulceration and gastrointestinal inflammation" },
+  "INS 471": { "name": "Mono- and Diglycerides of Fatty Acids", "hazard": "MODERATE", "reason": "Industrial emulsifier commonly derived from commercial palm oil fractions" },
+  "INS 955": { "name": "Sucralose", "hazard": "MODERATE", "reason": "Artificial chlorinated sweetener; alters gut microbiome composition" },
+  "INS 951": { "name": "Aspartame", "hazard": "HIGH", "reason": "Classified as possibly carcinogenic (Group 2B) by WHO IARC" },
+  "INS 211": { "name": "Sodium Benzoate", "hazard": "HIGH", "reason": "Preservative; forms trace benzene (carcinogen) when combined with Vitamin C" },
+  "INS 320": { "name": "Butylated Hydroxyanisole (BHA)", "hazard": "HIGH", "reason": "Synthetic fat preservative classified as a suspected endocrine disruptor" }
+}
