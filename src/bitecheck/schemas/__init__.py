@@ -6,6 +6,12 @@ Exports all data contracts used across the multi-agent system.
 from bitecheck.schemas.packaging import PackagingData, NutritionFacts
 from bitecheck.schemas.audit import AuditReport, AuditViolation
 from bitecheck.schemas.scorecard import CategoryDeductions, HonestyScorecard
+from bitecheck.schemas.sentiment import (
+    SentimentReport,
+    AspectSentiment,
+    AntiBotMetrics,
+    ConsumerReview,
+)
 
 __all__ = [
     "PackagingData",
@@ -14,4 +20,8 @@ __all__ = [
     "AuditViolation",
     "CategoryDeductions",
     "HonestyScorecard",
+    "SentimentReport",
+    "AspectSentiment",
+    "AntiBotMetrics",
+    "ConsumerReview",
 ]

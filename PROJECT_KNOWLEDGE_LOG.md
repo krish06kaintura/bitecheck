@@ -16,8 +16,8 @@
 | **Phase 3** | **Agent 1: Multimodal Vision Ingestion & OCR** | 🟢 **COMPLETED** | Gemini 2.5 Flash Vision client, contrast pre-processing, structured JSON extraction |
 | **Phase 4** | **Agent 2: Deterministic Scientific Food Auditor** | 🟢 **COMPLETED** | 12 statutory FSSAI food science evaluation checks |
 | **Phase 5** | **Mathematical Scoring Engine & Penalty Matrix** | 🟢 **COMPLETED** | Multi-dimensional deductive scoring, category caps, score bounds, statutory overrides |
-| **Phase 6** | **Agent 3: Consumer Sentiment & Review Detective** | 🟡 **UPCOMING** | Targeted query tools for Reddit/Amazon, anti-bot hype filter |
-| **Phase 7** | **Multi-Agent State Graph Orchestrator** | ⚪ UPCOMING | Central State Machine, shared state graph, error recovery |
+| **Phase 6** | **Agent 3: Consumer Sentiment & Review Detective** | 🟢 **COMPLETED** | Targeted Reddit/Amazon query tools, anti-bot hype heuristics, aspect sentiment, fault isolation |
+| **Phase 7** | **Multi-Agent State Graph Orchestrator** | 🟡 **UPCOMING** | Central State Machine, shared state graph, error recovery |
 | **Phase 8** | **Agent 4: Transparency Scorecard & Clean Swaps** | ⚪ UPCOMING | Aggregator agent, traceable evidence mapper, clean brand swaps |
 | **Phase 9** | **Full-Stack Web Dashboard & API Layer** | ⚪ UPCOMING | Modern responsive SPA (Vanilla CSS/JS + FastAPI/Python) |
 | **Phase 10** | **End-to-End System Integration** | ⚪ UPCOMING | Full-stack debugging, pipeline tracing, logging observability |
@@ -46,3 +46,8 @@
 * [x] **Critical Statutory Overrides:** High-risk legal fraud (e.g., FSSAI Veg Fraud, banned trans fats) bypasses arithmetic deductions and strictly caps score ceiling at $\le 49$ (Red Tier).
 * [x] **Strict Score Clamping:** Clamping honesty scores strictly within $[0, 100]$ to prevent UI underflow/overflow bugs.
 * [x] **Standardized Red-Flag Badge Normalization:** Extracting unstructured violations into structured frontend badge tokens (`ATTA_MAIDA_TRAP`, `PALM_OIL_ALERT`, etc.).
+* [x] **Isolated Blast Radius & Graceful Degradation:** External network/forum scraping failures or rate limits are caught within Agent 3, emitting a degraded payload instead of crashing the orchestrator.
+* [x] **Anti-Bot & PR Hype Heuristics:** Algorithmic detection of paid marketing spam, repetitive superlatives ("miracle", "100% genuine results"), and uninformative 5-star filler.
+* [x] **Negation-Aware Semantic Extraction:** Preceding token window inspection (`"no bloating"`, `"zero chemical aftertaste"`) preventing false-positive distress alerts.
+* [x] **Aspect-Based Sentiment Decomposition:** Structuring unstructured community discourse into Taste, Health vs Marketing, and Digestive Side Effects.
+* [x] **Gastrointestinal Distress Screening:** Correlating real-world consumer complaints (bloating, acidity, cramps, sugar crash) with ultra-processed ingredients.
