@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BiteCheck India | Autonomous Food & Beverage Transparency Auditor</title>
+  <meta name="description" content="Audit packaged Indian foods with autonomous AI agents: 12 FSSAI compliance checks, hidden sugars, whole-pack multipliers, and clean quick-commerce swaps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand-group">
+        <div class="logo-badge">🥗</div>
+        <div>
+          <h1 class="logo-title">BiteCheck <span class="flag-accent">India</span></h1>
+          <p class="logo-subtitle">Autonomous Multimodal Food Science & FSSAI Regulatory Auditor</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-dot pulsing"></span>
+        <span class="status-text">Multi-Agent System Online (4 Nodes)</span>
+      </div>
+    </header>
+
+    <!-- Main Hero / Audit Trigger Section -->
+    <main>
+      <section class="audit-control-card glass-panel" id="control-section">
+        <div class="section-header">
+          <div class="tab-buttons">
+            <button class="tab-btn active" id="tab-presets" onclick="switchTab('presets')">⚡ Instant Product Presets</button>
+            <button class="tab-btn" id="tab-upload" onclick="switchTab('upload')">📸 Multimodal Label Upload</button>
+          </div>
+          <span class="agent-badge">Agents 1-4 Active</span>
+        </div>
+
+        <!-- Tab 1: Presets -->
+        <div class="tab-content" id="content-presets">
+          <p class="tab-description">Select a typical Indian packaged food to run the complete 4-agent state graph pipeline:</p>
+          <div class="preset-grid">
+            <button class="preset-btn deceptive" id="preset-deceptive-cookie" onclick="runPreset('cookie')">
+              <div class="preset-icon">🍪</div>
+              <div class="preset-info">
+                <span class="preset-name">"Diet Oats Biscuit"</span>
+                <span class="preset-sub">Claims: Rich in Oats, Zero Sugar • Maida #1, Palm Oil</span>
+              </div>
+              <span class="preset-tag red">High Deception</span>
+            </button>
+
+            <button class="preset-btn deceptive" id="preset-deceptive-namkeen" onclick="runPreset('namkeen')">
+              <div class="preset-icon">🥨</div>
+              <div class="preset-info">
+                <span class="preset-name">"Lite Multigrain Namkeen"</span>
+                <span class="preset-sub">Claims: Baked, Healthy Snack • 1,200mg Sodium, Palmolein</span>
+              </div>
+              <span class="preset-tag red">Sodium Bomb</span>
+            </button>
+
+            <button class="preset-btn clean" id="preset-clean-oats" onclick="runPreset('oats')">
+              <div class="preset-icon">🥣</div>
+              <div class="preset-info">
+                <span class="preset-name">"100% Rolled Oats"</span>
+                <span class="preset-sub">Claims: Whole Grain • 0 Sugar, 0 Palm Oil, High Fiber</span>
+              </div>
+              <span class="preset-tag green">Clean Food</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 2: Image Upload -->
+        <div class="tab-content hidden" id="content-upload">
+          <p class="tab-description">Upload Front (branding/claims) and Back (nutrition/ingredients) packaging photos:</p>
+          <form id="upload-form" onsubmit="handleUploadSubmit(event)">
+            <div class="upload-grid">
+              <div class="upload-zone" id="zone-front">
+                <input type="file" id="front-file" accept="image/*" onchange="previewImage('front', this)" required>
+                <div class="zone-prompt" id="prompt-front">
+                  <span class="zone-icon">📷</span>
+                  <span class="zone-title">Front Label Photo</span>
+                  <span class="zone-desc">Product title & marketing claims</span>
+                </div>
+                <img id="preview-front" class="image-preview hidden" alt="Front Preview">
+              </div>
+
+              <div class="upload-zone" id="zone-back">
+                <input type="file" id="back-file" accept="image/*" onchange="previewImage('back', this)" required>
+                <div class="zone-prompt" id="prompt-back">
+                  <span class="zone-icon">🔍</span>
+                  <span class="zone-title">Back Label Photo</span>
+                  <span class="zone-desc">Ingredients & Nutritional Table</span>
+                </div>
+                <img id="preview-back" class="image-preview hidden" alt="Back Preview">
+              </div>
+            </div>
+            <button type="submit" class="submit-audit-btn" id="btn-submit-upload">
+              <span>🚀 Run Multimodal Agent Audit</span>
+            </button>
+          </form>
+        </div>
+
+        <!-- Loading State Indicator -->
+        <div class="loading-overlay hidden" id="loading-overlay">
+          <div class="spinner"></div>
+          <div class="loading-status">
+            <span class="loading-title" id="loading-step">Dispatching Multi-Agent State Graph...</span>
+            <span class="loading-sub">Running parallel branches: Agent 2 (Auditor) + Agent 3 (Sentiment)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS DASHBOARD -->
+      <section class="results-dashboard hidden" id="results-dashboard">
+        <!-- Telemetry & Header Bar -->
+        <div class="results-header glass-panel">
+          <div>
+            <div class="product-titles">
+              <span class="brand-pill" id="card-brand">Brand</span>
+              <h2 class="product-title" id="card-product">Product Name</h2>
+            </div>
+            <p class="verdict-banner" id="card-verdict">Executive summary verdict...</p>
+          </div>
+          <div class="telemetry-box">
+            <span class="telemetry-label">Multi-Agent Latency</span>
+            <span class="telemetry-value" id="telemetry-latency">0ms</span>
+            <span class="telemetry-sub" id="telemetry-nodes">4 Nodes Synced</span>
+          </div>
+        </div>
+
+        <!-- Primary Top Grid (Score + Reality + Badges) -->
+        <div class="primary-grid">
+          <!-- Card 1: Master Score Gauge -->
+          <div class="result-card glass-panel score-card">
+            <h3 class="card-title">FSSAI Honesty Score</h3>
+            <div class="gauge-wrapper">
+              <svg class="score-gauge" viewBox="0 0 120 120">
+                <circle class="gauge-bg" cx="60" cy="60" r="50"></circle>
+                <circle class="gauge-fill" id="gauge-circle" cx="60" cy="60" r="50"></circle>
+              </svg>
+              <div class="gauge-content">
+                <span class="gauge-number" id="card-score">0</span>
+                <span class="gauge-denom">/ 100</span>
+              </div>
+            </div>
+            <div class="bracket-badge" id="card-bracket">CALCULATING</div>
+            <div class="score-override-msg hidden" id="card-override-alert">⚠️ Statutory Critical Fraud Override Applied</div>
+          </div>
+
+          <!-- Card 2: Whole-Pack Reality Pill -->
+          <div class="result-card glass-panel reality-card">
+            <div class="card-title-row">
+              <h3 class="card-title">Whole-Pack Reality Pill</h3>
+              <span class="multiplier-pill" id="pill-multiplier">1.0x</span>
+            </div>
+            <p class="card-desc">Fine-print advertised per-serving claims vs. actual intake if you eat the full packet:</p>
+            
+            <div class="reality-table">
+              <div class="reality-row header-row">
+                <span>Metric</span>
+                <span>Claimed (Per Serving)</span>
+                <span>Reality (Whole Pack)</span>
+              </div>
+              <div class="reality-row">
+                <span>Calories</span>
+                <span id="reality-cal-adv">0 kcal</span>
+                <span class="bold highlight" id="reality-cal-pack">0 kcal</span>
+              </div>
+              <div class="reality-row">
+                <span>Sugar</span>
+                <span id="reality-sugar-adv">0g</span>
+                <span class="bold highlight" id="reality-sugar-pack">0g</span>
+              </div>
+              <div class="reality-row">
+                <span>Sodium</span>
+                <span id="reality-sodium-adv">0mg</span>
+                <span class="bold highlight" id="reality-sodium-pack">0mg</span>
+              </div>
+            </div>
+
+            <div class="glycemic-banner hidden" id="glycemic-alert">
+              ⚠️ <strong>Diabetic Spike Alert:</strong> High Carb:Fiber ratio (<span id="carb-fiber-val">0</span>:1) triggers rapid blood sugar surge.
+            </div>
+          </div>
+
+          <!-- Card 3: Standardized Red-Flag Badges -->
+          <div class="result-card glass-panel badges-card">
+            <h3 class="card-title">Regulatory Red-Flag Badges</h3>
+            <div class="badges-container" id="badges-container">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Bottom Grid (Evidence + Sentiment + Swaps) -->
+        <div class="secondary-grid">
+          <!-- Card 4: Traceable Evidence Drawer -->
+          <div class="result-card glass-panel evidence-card">
+            <h3 class="card-title">Traceable Evidence Chain (Label Proof)</h3>
+            <p class="card-desc">Every arithmetic penalty mapped directly to physical label print:</p>
+            <div class="evidence-list" id="evidence-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- Card 5: Reddit & Public Sentiment Pulse -->
+          <div class="result-card glass-panel sentiment-card">
+            <div class="card-title-row">
+              <h3 class="card-title">Consumer Review Pulse</h3>
+              <span class="authenticity-pill" id="pulse-authenticity">100% Authentic</span>
+            </div>
+            <div class="distress-box hidden" id="distress-box">
+              <span class="distress-icon">🚨</span>
+              <div>
+                <strong>Digestive Distress Warning:</strong>
+                <p id="distress-desc">Multiple verified consumer reviews report digestive issues.</p>
+              </div>
+            </div>
+            <p class="sentiment-summary" id="pulse-summary">Scraping Reddit and community forums...</p>
+          </div>
+
+          <!-- Card 6: Quick-Commerce Clean FMCG Swaps -->
+          <div class="result-card glass-panel swaps-card">
+            <div class="card-title-row">
+              <h3 class="card-title">Clean Indian Brand Swaps</h3>
+              <span class="quick-comm-pill">⚡ Blinkit / Zepto / Instamart</span>
+            </div>
+            <p class="card-desc" id="swaps-desc">Healthier, 100% whole grain & palm-oil-free alternatives:</p>
+            <div class="swaps-list" id="swaps-list">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>BiteCheck India • Multi-Agent Autonomous Food Auditor • FSSAI Regulations & ICMR Clinical Guidelines 2026</p>
+    </footer>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
