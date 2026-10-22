@@ -18,8 +18,8 @@
 | **Phase 5** | **Mathematical Scoring Engine & Penalty Matrix** | 🟢 **COMPLETED** | Multi-dimensional deductive scoring, category caps, score bounds, statutory overrides |
 | **Phase 6** | **Agent 3: Consumer Sentiment & Review Detective** | 🟢 **COMPLETED** | Targeted Reddit/Amazon query tools, anti-bot hype heuristics, aspect sentiment, fault isolation |
 | **Phase 7** | **Multi-Agent State Graph Orchestrator** | 🟢 **COMPLETED** | Central State Machine, shared state graph, parallel branch dispatch, error recovery |
-| **Phase 8** | **Agent 4: Transparency Scorecard & Clean Swaps** | 🟡 **UPCOMING** | Aggregator agent, traceable evidence mapper, clean brand swaps |
-| **Phase 9** | **Full-Stack Web Dashboard & API Layer** | ⚪ UPCOMING | Modern responsive SPA (Vanilla CSS/JS + FastAPI/Python) |
+| **Phase 8** | **Agent 4: Transparency Scorecard & Clean Swaps** | 🟢 **COMPLETED** | Aggregator agent, traceable evidence mapper, clean brand swaps |
+| **Phase 9** | **Full-Stack Web Dashboard & API Layer** | 🟡 **UPCOMING** | Modern responsive SPA (Vanilla CSS/JS + FastAPI/Python) |
 | **Phase 10** | **End-to-End System Integration** | ⚪ UPCOMING | Full-stack debugging, pipeline tracing, logging observability |
 | **Phase 11** | **Adversarial & Edge-Case Testing** | ⚪ UPCOMING | Blurry images, missing fields, unknown INS codes |
 | **Phase 12** | **Production Engineering, Security & Scalability** | ⚪ UPCOMING | Production deployment, caching, rate limiting |
@@ -56,3 +56,8 @@
 * [x] **Wall-Clock Latency Reduction:** Reducing pipeline runtime from $T_1 + T_2 + T_3 + T_{\text{score}}$ to $T_1 + \max(T_2, T_3) + T_{\text{score}}$.
 * [x] **Multi-Node Fault Recovery:** State machine captures per-node errors, flags graceful degradation (`is_degraded=True`), and prevents cascading failures.
 * [x] **Observability & Timing Telemetry:** Granular per-node execution latency logging (`execution_times_ms`) for distributed debugging.
+* [x] **Traceable Evidence Mapping:** Binding every arithmetic penalty back to the exact physical label snippet.
+* [x] **The Whole-Pack Reality Pill:** Translating fine-print per-serving snippets into real-world pack consumption figures.
+* [x] **Algorithmic Clean Indian Swap Matching:** Recommending honest, whole-grain, palm-oil-free FMCG alternatives on quick-commerce.
+* [x] **Zero-Swap Protection for Clean Foods:** Intelligently recognizing clean products ($\ge 85$) to praise them rather than recommending unnecessary swaps.
+* [x] **Multi-Source Evidence Fusion:** Synthesizing lab audits, OCR data, and Reddit consumer sentiment into a single unified customer contract.

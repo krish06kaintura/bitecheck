@@ -12,6 +12,12 @@ from bitecheck.schemas.sentiment import (
     AntiBotMetrics,
     ConsumerReview,
 )
+from bitecheck.schemas.transparency import (
+    ProductTransparencyCard,
+    CleanSwapItem,
+    EvidenceItem,
+    WholePackReality,
+)
 
 __all__ = [
     "PackagingData",
@@ -24,4 +30,8 @@ __all__ = [
     "AspectSentiment",
     "AntiBotMetrics",
     "ConsumerReview",
+    "ProductTransparencyCard",
+    "CleanSwapItem",
+    "EvidenceItem",
+    "WholePackReality",
 ]

@@ -16,6 +16,7 @@ from bitecheck.schemas.packaging import PackagingData
 from bitecheck.agents.vision_agent import VisionAgent
 from bitecheck.agents.food_auditor import FoodAuditor
 from bitecheck.agents.sentiment_agent import SentimentAgent
+from bitecheck.agents.transparency_agent import TransparencyAgent
 from bitecheck.scoring.engine import ScoringEngine
 from bitecheck.orchestrator.state import BiteCheckState
 
@@ -25,7 +26,8 @@ logger = get_logger("bitecheck.orchestrator")
 class MultiAgentOrchestrator:
     """
     Central State Machine and Concurrency Engine for BiteCheck India.
-    Orchestrates the multi-agent graph with parallel branch dispatch and fault isolation.
+    Orchestrates the multi-agent graph with parallel branch dispatch,
+    scoring, and transparency scorecard synthesis.
     """
 
     def __init__(
@@ -34,12 +36,14 @@ class MultiAgentOrchestrator:
         food_auditor: FoodAuditor | None = None,
         sentiment_agent: SentimentAgent | None = None,
         scoring_engine: ScoringEngine | None = None,
+        transparency_agent: TransparencyAgent | None = None,
     ):
         self.vision_agent = vision_agent or VisionAgent()
         self.food_auditor = food_auditor or FoodAuditor()
         self.sentiment_agent = sentiment_agent or SentimentAgent()
         self.scoring_engine = scoring_engine or ScoringEngine()
-        logger.info("MultiAgentOrchestrator initialized with 4 autonomous engine nodes.")
+        self.transparency_agent = transparency_agent or TransparencyAgent()
+        logger.info("MultiAgentOrchestrator initialized with 4 autonomous agents and ScoringEngine.")
 
     def run(
         self,
@@ -156,11 +160,30 @@ class MultiAgentOrchestrator:
             state.execution_times_ms["scoring_engine"] = round((t_score_end - t_score_start) * 1000, 2)
             logger.info(f"Node 3 (Scoring Engine) completed in {state.execution_times_ms['scoring_engine']}ms")
 
+            # ------------------------------------------------------------------
+            # NODE 4: Master Transparency Scorecard & Clean Swaps (Agent 4)
+            # ------------------------------------------------------------------
+            state.current_step = "TRANSPARENCY_SYNTHESIS"
+            t_trans_start = time.perf_counter()
+
+            logger.info("Executing Node 4: Agent 4 Transparency Scorecard & Clean Swaps...")
+            state.transparency_card = self.transparency_agent.generate_transparency_card(
+                packaging_data=pkg,
+                audit_report=state.audit_report,
+                scorecard=state.scorecard,
+                sentiment_report=state.sentiment_report,
+            )
+
+            t_trans_end = time.perf_counter()
+            state.execution_times_ms["transparency_synthesis"] = round((t_trans_end - t_trans_start) * 1000, 2)
+            logger.info(f"Node 4 (Transparency Agent) completed in {state.execution_times_ms['transparency_synthesis']}ms")
+
             # Finalize State
             state.current_step = "COMPLETED"
             logger.info(
                 f"Pipeline successfully completed for '{pkg.brand_name} - {pkg.product_name}': "
                 f"Score={state.scorecard.honesty_score}/100 [{state.scorecard.bracket}], "
+                f"CleanSwaps={len(state.transparency_card.clean_swaps)}, "
                 f"Total Wall Time={state.total_latency_ms:.1f}ms, Degraded={state.is_degraded}"
             )
             return state

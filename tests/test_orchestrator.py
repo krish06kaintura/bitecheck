@@ -23,14 +23,14 @@ def sample_packaging_data():
         net_weight_g=100.0,
         serving_size_g=20.0,
         nutrition_per_100g=NutritionFacts(
-            calories_kcal=450.0,
-            total_fat_g=18.0,
+            energy_kcal=450.0,
+            fat_g=18.0,
             saturated_fat_g=8.0,
             trans_fat_g=0.0,
             carbohydrates_g=68.0,
             dietary_fiber_g=2.0,
-            sugars_g=1.0,
-            added_sugars_g=0.0,
+            sugar_g=1.0,
+            added_sugar_g=0.0,
             sodium_mg=550.0,
             protein_g=5.0,
         ),
@@ -58,12 +58,14 @@ def test_orchestrator_happy_path(orchestrator, sample_packaging_data):
     assert state.audit_report is not None
     assert state.sentiment_report is not None
     assert state.scorecard is not None
+    assert state.transparency_card is not None
 
     # Verify score calculation and audit violations
     assert state.scorecard.honesty_score < 60  # Deceptive maida + palm oil + maltodextrin
     assert state.scorecard.bracket == "HIGHLY DECEPTIVE"
     assert "ATTA_MAIDA_TRAP" in state.scorecard.active_badges
     assert "PALM_OIL_ALERT" in state.scorecard.active_badges
+    assert len(state.transparency_card.clean_swaps) > 0
 
     # Verify latency tracking
     assert "deterministic_audit" in state.execution_times_ms
