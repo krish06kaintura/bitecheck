@@ -17,8 +17,8 @@
 | **Phase 4** | **Agent 2: Deterministic Scientific Food Auditor** | 🟢 **COMPLETED** | 12 statutory FSSAI food science evaluation checks |
 | **Phase 5** | **Mathematical Scoring Engine & Penalty Matrix** | 🟢 **COMPLETED** | Multi-dimensional deductive scoring, category caps, score bounds, statutory overrides |
 | **Phase 6** | **Agent 3: Consumer Sentiment & Review Detective** | 🟢 **COMPLETED** | Targeted Reddit/Amazon query tools, anti-bot hype heuristics, aspect sentiment, fault isolation |
-| **Phase 7** | **Multi-Agent State Graph Orchestrator** | 🟡 **UPCOMING** | Central State Machine, shared state graph, error recovery |
-| **Phase 8** | **Agent 4: Transparency Scorecard & Clean Swaps** | ⚪ UPCOMING | Aggregator agent, traceable evidence mapper, clean brand swaps |
+| **Phase 7** | **Multi-Agent State Graph Orchestrator** | 🟢 **COMPLETED** | Central State Machine, shared state graph, parallel branch dispatch, error recovery |
+| **Phase 8** | **Agent 4: Transparency Scorecard & Clean Swaps** | 🟡 **UPCOMING** | Aggregator agent, traceable evidence mapper, clean brand swaps |
 | **Phase 9** | **Full-Stack Web Dashboard & API Layer** | ⚪ UPCOMING | Modern responsive SPA (Vanilla CSS/JS + FastAPI/Python) |
 | **Phase 10** | **End-to-End System Integration** | ⚪ UPCOMING | Full-stack debugging, pipeline tracing, logging observability |
 | **Phase 11** | **Adversarial & Edge-Case Testing** | ⚪ UPCOMING | Blurry images, missing fields, unknown INS codes |
@@ -51,3 +51,8 @@
 * [x] **Negation-Aware Semantic Extraction:** Preceding token window inspection (`"no bloating"`, `"zero chemical aftertaste"`) preventing false-positive distress alerts.
 * [x] **Aspect-Based Sentiment Decomposition:** Structuring unstructured community discourse into Taste, Health vs Marketing, and Digestive Side Effects.
 * [x] **Gastrointestinal Distress Screening:** Correlating real-world consumer complaints (bloating, acidity, cramps, sugar crash) with ultra-processed ingredients.
+* [x] **State Graph Architecture:** Immutable, strongly-typed central state tracking execution stages, timestamps, and artifacts.
+* [x] **Concurrent Multi-Agent Branching:** Dispatching CPU-bound deterministic audits (Agent 2) and I/O-bound sentiment retrieval (Agent 3) in parallel using thread pools.
+* [x] **Wall-Clock Latency Reduction:** Reducing pipeline runtime from $T_1 + T_2 + T_3 + T_{\text{score}}$ to $T_1 + \max(T_2, T_3) + T_{\text{score}}$.
+* [x] **Multi-Node Fault Recovery:** State machine captures per-node errors, flags graceful degradation (`is_degraded=True`), and prevents cascading failures.
+* [x] **Observability & Timing Telemetry:** Granular per-node execution latency logging (`execution_times_ms`) for distributed debugging.

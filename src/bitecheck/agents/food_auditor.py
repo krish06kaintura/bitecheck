@@ -353,3 +353,6 @@ class FoodAuditor:
             f"Honesty Score: {scorecard.honesty_score}/100"
         )
         return report
+
+    # Ergonomic alias for callers
+    audit_packaging = audit
